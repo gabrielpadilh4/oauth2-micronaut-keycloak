@@ -1,0 +1,16 @@
+micronaut:
+  security:
+    authentication: idtoken
+    oauth2:
+      clients:
+        keycloak:
+          client-id: ${OAUTH_CLIENT_ID:XXX}
+          client-secret: ${OAUTH_CLIENT_SECRET:YYY}
+          openid:
+            issuer: ${OAUTH_ISSUER}
+
+    endpoints:
+      logout:
+        enabled: true
+        get-allowed: true
+        path: /logout

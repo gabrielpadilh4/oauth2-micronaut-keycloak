@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: oauth2MicronautKeycloak
+  security:
+
+netty:
+  default:
+    allocator:
+      max-order: 3
