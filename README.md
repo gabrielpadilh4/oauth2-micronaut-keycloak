@@ -1,29 +1,32 @@
-## Micronaut 3.8.8 Documentation
+# OAuth2 Micronaut Keycloak
 
-- [User Guide](https://docs.micronaut.io/3.8.8/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.8.8/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.8.8/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+This is a basic application showing how is easy to setup micronaut security oauth2 with Keycloak.
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
+To run the example, set the environment variables below:
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+$ export OAUTH_ISSUER=http://localhost:8081/realms/development
+$ export OAUTH_CLIENT_SECRET=tKCakYu8SeWqtuO1sVGxvPsiJcv1ySzf
+$ export OAUTH_CLIENT_ID=micronaut
 
+After setting the environment variables, run with the following command:
+$ ./gradlew run
 
-## Feature security-oauth2 documentation
+## Authenticate
 
-- [Micronaut Security OAuth 2.0 documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html#oauth)
+To authenticate to the application, access "http//localhost:8080/oauth/login/keycloak", this will redirect to keycloak
+URL.
 
+After the authentication, you have the option to access two secured resources as the following:
 
-## Feature security documentation
+- /secure-viewer
+    - This endpoint will validate if the user has the role *user_viewer*
 
-- [Micronaut Security documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html)
+- /secure-admin
+    - This endpoint will validate if the user has the role *admin_user*
 
+- At the endpoint / will show a simple "Hello World" message to any user (anonymous rule).
 
-## Feature security-jwt documentation
+As an observation, maybe with only adding a user and a role in keycloak and authenticating may not load the roles for
+the application, so you need to include the role in token scope and add to ID Token. 
 
-- [Micronaut Security JWT documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html)
-
-
+More info, see this post that i give more details.
