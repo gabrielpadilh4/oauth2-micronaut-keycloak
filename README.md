@@ -32,4 +32,4 @@ After the authentication, you have the option to access two secured resources as
 As an observation, maybe with only adding a user and a role in keycloak and authenticating may not load the roles for
 the application, so you need to include the role in token scope and add to ID Token. 
 
-More info, see my post at [Oauth2 Micronaut with Keycloak OpenId Connect](https://gabrielpadilh4.github.io/hello/2023/03/31/oauth2-micronaut-keycloak-openid-connect.html)
+More info, see my post at [Oauth2 Micronaut with Keycloak OpenId Connect](https://gabrielpadilh4.github.io/keycloak/micronaut/oidc/2023/03/31/oauth2-micronaut-keycloak-openid-connect.html)
